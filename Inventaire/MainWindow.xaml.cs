@@ -8,6 +8,10 @@ using System.Windows;
 
 namespace Inventaire
 {
+
+    //Petite modification
+
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
