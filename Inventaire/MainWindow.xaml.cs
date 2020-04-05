@@ -1,9 +1,4 @@
-﻿using app_models;
-using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+﻿using BillingManagement.UI.ViewModels;
 using System.Windows;
 
 namespace Inventaire
@@ -15,9 +10,9 @@ namespace Inventaire
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window//, INotifyPropertyChanged
     {
-        CustomersDataService customersDataService = new CustomersDataService();
+        /*CustomersDataService customersDataService = new CustomersDataService();
 
         private ObservableCollection<Customer> customers;
         private Customer selectedCustomer;
@@ -38,45 +33,48 @@ namespace Inventaire
                 selectedCustomer = value;
                 OnPropertyChanged();
             }
-        }
+        }*/
 
-        public MainWindow()
+        public MainWindow(CustomersViewModel vm)
         {
             InitializeComponent();
-            InitValues();
+
+            DataContext = vm;
+
+            //InitValues();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        /* public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
+         {
+             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+         }
 
-        private void InitValues()
-        {
-            Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
-            Debug.WriteLine(Customers.Count);
-        }
+         private void InitValues()
+         {
+             Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
+             Debug.WriteLine(Customers.Count);
+         }
 
-        private void CustomerNew_Click(object sender, RoutedEventArgs e)
-        {
-            Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
-            Customers.Add(temp);
-            SelectedCustomer = temp;            
-        }
+         private void CustomerNew_Click(object sender, RoutedEventArgs e)
+         {
+             Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
+             Customers.Add(temp);
+             SelectedCustomer = temp;            
+         }
 
-        private void CustomerDelete_Click(object sender, RoutedEventArgs e)
-        {
-            int currentIndex = Customers.IndexOf(SelectedCustomer);
+         private void CustomerDelete_Click(object sender, RoutedEventArgs e)
+         {
+             int currentIndex = Customers.IndexOf(SelectedCustomer);
 
-            if (currentIndex > 0)
-                currentIndex--;
+             if (currentIndex > 0)
+                 currentIndex--;
 
-            Customers.Remove(SelectedCustomer);
+             Customers.Remove(SelectedCustomer);
 
-            lvCustomers.SelectedIndex = currentIndex;
+             lvCustomers.SelectedIndex = currentIndex;
 
-        }
+         }*/
     }
 }
