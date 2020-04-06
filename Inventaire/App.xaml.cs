@@ -14,9 +14,9 @@ namespace Inventaire
         public App()
         {
 
-            CustomersViewModel vm = new CustomersViewModel();
+            //CustomersViewModel vm = new CustomersViewModel();
 
-            _wnd = new MainWindow(vm);
+            _wnd = new MainWindow();
 
             _wnd.Show();
 

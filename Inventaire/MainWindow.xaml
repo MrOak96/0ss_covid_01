@@ -29,6 +29,9 @@
                     <MenuItem Header="Fonction 2"/>
                     <MenuItem Header="Fonction 3"/>
                 </MenuItem>
+                <MenuItem Header="Outils">
+                    <MenuItem Header="Nouveau" Command="{Binding NewCustomer}"/>
+                </MenuItem>
             </Menu>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Height="25">
@@ -47,7 +50,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Margin="6" Orientation="Horizontal" x:Name="spHeader">
                     <TextBlock Text="Liste des clients" />
-                    <Button Content="Nouveau client" Margin="6 0"/>
+                    <Button Content="Nouveau client" Margin="6 0" Command="{Binding NewCustomer}"/>
                 </StackPanel>
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}"
                           SelectedItem="{Binding SelectedCustomer}"
@@ -112,7 +115,7 @@
 
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">
-                    <Button Content="Supprimer client"/>
+                    <Button Content="Supprimer client" Click="CustomerDelete_Click"/>
                 </StackPanel>
                 <Image Margin="6" Grid.Row="7"
                        Source="{Binding SelectedCustomer.PicturePath}"
